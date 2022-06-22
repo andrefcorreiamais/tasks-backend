@@ -1,23 +1,10 @@
 pipeline {
     agent any 
     stages {
-        stage ('Inicio') {
+        stage ('Just Test') {
             steps {
-                bat 'echo inicio'
+                bat 'echo deu certo'
             } 
         }
-        stage('Meio') {
-            steps {
-                bat 'echo meio'
-                bat 'echo meio de novo'
-            }
-        }
-        stage('Fim') {
-            steps {
-                sleep(5)
-                bat 'echo fim'
-            }
-        }
-        
-    }
+   }
 }
