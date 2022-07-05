@@ -37,15 +37,27 @@ pipeline {
         }
         stage ('API Test') {
             steps {
-                dir('') {
+                dir('api-test') {
                     git 'https://github.com/andrefcorreiamais/tasks-api-test'        
                     bat 'mvn test'
                 }
             } 
         }  
+        stage ('Depoly Frontend') {
+            steps {
+                dir('frontend') {
+                    git 'https://github.com/andrefcorreiamais/tasks-frontend'        
+                    bat 'mvn clean package'
+                    deploy adapters: [tomcat8(credentialsId: 'TomcatLogin', path: '', url: 'http://localhost:8001/')], contextPath: 'tasks', war: 'target/tasks.war'                  
+                }
+            }           
+        }
     }
   
 }
+
+
+
 
 
 
