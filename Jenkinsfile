@@ -37,8 +37,10 @@ pipeline {
         }
         stage ('API Test') {
             steps {
+                dir('') {
                     git 'https://github.com/andrefcorreiamais/tasks-api-test'        
                     bat 'mvn test'
+                }
             } 
         }  
     }
