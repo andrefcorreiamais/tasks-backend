@@ -52,13 +52,14 @@ pipeline {
                 }
             }           
         }
+         stage ('Functional Test') {
+            steps {
+                dir('functional-test') {
+                    git 'https://github.com/andrefcorreiamais/tasks-functional-tests'        
+                    bat 'mvn test'
+                }
+            } 
+        }  
     }
   
 }
-
-
-
-
-
-
-
