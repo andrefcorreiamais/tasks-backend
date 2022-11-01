@@ -3,12 +3,12 @@ services:
   db:
     container_name: pg-prod
     image: postgres:9.6
-    ports:
-      - 5433:5432
+     ports:
+      - 5434:5432
     networks:
       - prod_net_back
     environment:
-      - POSTGRES_PASSWORD=passwd
+      - POSTGRES_PASSWORD=password
       - POSTGRES_DB=tasks
     volumes:
       - prod_postgresql:/var/lib/postgresql
@@ -31,7 +31,7 @@ services:
       - DATABASE_HOST=db
       - DATABASE_PORT=5432
       - DATABASE_USER=postgres
-      - DATABASE_PASSWD=passwd
+      - DATABASE_PASSWD=password
       - DATABASE_UPDATE=none
     depends_on:
       - db
